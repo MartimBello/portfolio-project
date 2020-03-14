@@ -2,6 +2,6 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import JobsConfig
+from .models import Job
 
-admin.site.register(JobsConfig)
+admin.site.register(Job)
