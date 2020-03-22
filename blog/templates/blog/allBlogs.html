@@ -1,13 +1,14 @@
+
 <!doctype html>
 <html lang="en">
   <head>
-{% load staticfiles %}
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Mariasole Mazzetti</title>
+    <title>Mariasoles Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -68,38 +69,23 @@
 </header>
 
 <main role="main">
+	<div class="container">
+	<h1 class="text-center pt-3">Welcome to Mariasole Blog</h1>
+	<br />
+	<br />
+	<h2>Latest Posts</h2>
+	<hr />
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Hi I'm Mariasole !</h1>
-      <p class="lead text-muted">This is my portfolio website and I'll be sharing some of my projects and it will also have a blog to share some thoughts</p>
-      <p>
-        <a href="mailto:solemazz2001@gmail.com" class="btn btn-primary my-2">Email me</a>
-      </p>
-      <img class="img-fluid" src="{% static '6554F211-9909-4C1E-B28E-EF0E4FD13A94.jpeg'%}" heigth=300 width=300 />
-    </div>
-  </section>
+	{% for blog in blogPosts.all %}
+	<a href="{% url 'detail' blog.id %}"><h3>{{blog.title}}<h3/><a/>
+	{{ blog.pub_date}}
+	<br />
+	<img class="img-fluid" src="{{blog.image.url}}" height=200 width=200/>
+	<br />
+	<p>{{blog.summary}}...</p>
+	{%endfor%}
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-
-        {% for job in jobs.all %}
-        
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
-
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
+	<div />
 </main>
 
 <footer class="text-muted">
